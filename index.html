@@ -93,34 +93,6 @@ nav ul a:hover{opacity:1}
   .frame{margin-bottom:8px}
 }
 
-/* try the booth */
-.try{background:var(--plum-2);color:var(--white);padding:100px 0}
-.try .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center;min-height:440px}
-.try h2{font-size:clamp(34px,4.6vw,52px);margin-bottom:16px}
-.try p{color:#d9cde3;font-size:19px;max-width:36ch;margin-bottom:14px}
-.try .small{font-size:15px;color:#b6a5c2}
-.cam{position:relative;background:#160a1d;border-radius:26px;padding:18px;box-shadow:0 30px 60px rgba(0,0,0,.35)}
-.screen{position:relative;aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:#0f0614;display:grid;place-items:center}
-.screen video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scaleX(-1)}
-.screen .idle{position:relative;text-align:center;padding:24px;color:#b6a5c2;font-size:16px}
-.screen .idle svg{width:90px;margin:0 auto 14px}
-.count{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);font-size:clamp(90px,16vw,170px);color:var(--sun);text-shadow:0 6px 0 rgba(0,0,0,.35);pointer-events:none}
-.shots{position:absolute;left:12px;top:12px;display:flex;gap:6px}
-.shots i{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.3)}
-.shots i.on{background:var(--coral)}
-.camflash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
-.camflash.go{animation:camflash .45s ease-out}
-@keyframes camflash{0%{opacity:1}100%{opacity:0}}
-.controls{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;align-items:center}
-.result{display:none;grid-template-columns:auto 1fr;gap:24px;align-items:center}
-.result{background:#160a1d;border-radius:26px;padding:28px}
-.result img{width:170px;border-radius:4px;box-shadow:0 18px 40px rgba(0,0,0,.45);transform:rotate(-3deg)}
-.result.show{display:grid}
-.result p{font-size:17px;margin:0 0 18px;color:#d9cde3}
-@media (max-width:520px){.result{grid-template-columns:1fr;justify-items:center;text-align:center}.result .controls{justify-content:center}}
-.camerr{display:none;color:var(--sun);font-size:16px;margin-top:14px}
-@media (max-width:860px){.try .wrap{grid-template-columns:1fr}}
-
 /* sections */
 section{padding:110px 0}
 .head{max-width:620px;margin-bottom:52px}
@@ -139,7 +111,11 @@ section{padding:110px 0}
 /* included */
 .inc{background:var(--lilac)}
 .inc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:44px 48px}
-.item svg{width:58px;height:40px;margin-bottom:16px}
+.prop{width:110px;height:118px;display:flex;flex-direction:column;align-items:center;transform:rotate(var(--r,-6deg));transform-origin:50% 100%;margin-bottom:20px}
+.prop svg{width:100px;height:56px;flex:0 0 auto}
+.prop:after{content:"";width:8px;flex:1;margin-top:-6px;border-radius:4px;background:repeating-linear-gradient(140deg,#fff 0 6px,var(--coral) 6px 12px);box-shadow:0 1px 0 rgba(42,20,51,.15)}
+.item:nth-child(2n) .prop{--r:7deg}
+.item:nth-child(3n) .prop{--r:-2deg}
 .item h3{font-family:var(--body);font-weight:700;font-size:20px;margin-bottom:6px;letter-spacing:0}
 .item p{color:var(--muted);font-size:17px}
 @media (max-width:820px){.inc-grid{grid-template-columns:1fr 1fr}}
@@ -186,13 +162,19 @@ details p{color:var(--muted);padding:0 50px 24px 0}
 
 /* book */
 .book{background:var(--plum);color:var(--white);text-align:center;position:relative;overflow:hidden}
-.book h2{font-size:clamp(38px,5.6vw,66px);margin-bottom:18px}
+.sign{display:inline-flex;flex-direction:column;align-items:center;margin-bottom:34px;transform:rotate(-3deg)}
+.bubble{position:relative;background:var(--white);color:var(--plum);border-radius:48px;padding:30px 44px 34px;box-shadow:0 10px 0 rgba(0,0,0,.25)}
+.bubble:after{content:"";position:absolute;left:24%;bottom:-26px;border:16px solid transparent;border-top:30px solid var(--white);border-bottom:0;transform:skewX(-18deg)}
+.book h2{font-size:clamp(34px,5.2vw,62px);margin:0}
+.sign .stick{width:12px;height:110px;margin-top:-2px;border-radius:6px;background:repeating-linear-gradient(140deg,#fff 0 8px,var(--coral) 8px 16px)}
+@media (max-width:540px){.bubble{padding:22px 26px 26px;border-radius:32px}.sign .stick{height:70px}}
 .book p{color:#d9cde3;font-size:19px;max-width:46ch;margin:0 auto 34px}
 .soon{display:none;margin-top:20px;color:var(--sun);font-size:17px}
 .contact{margin-top:44px;display:flex;justify-content:center;gap:48px;flex-wrap:wrap}
 .contact div{text-align:left}
 .contact b{display:block;font-size:14px;font-weight:600;color:#b6a5c2;margin-bottom:2px}
 .contact span{font-size:18px}
+@media (max-width:540px){.contact{flex-direction:column;gap:22px}.contact div{text-align:center}}
 
 /* terms */
 .terms{max-width:780px;counter-reset:t}
@@ -227,7 +209,6 @@ footer a{color:#d9cde3}
       Snapjar
     </a>
     <ul>
-      <li><a href="#try">Have a go</a></li>
       <li><a href="#how">How it works</a></li>
       <li><a href="#packages">Prices</a></li>
       <li><a href="#area">Where we go</a></li>
@@ -264,44 +245,6 @@ footer a{color:#d9cde3}
   </div>
 </header>
 
-<section class="try" id="try">
-  <div class="wrap">
-    <div>
-      <h2>Have a go</h2>
-      <p>This is how the booth works on the night. Press start, strike four poses, and keep your strip.</p>
-      <p class="small">Your camera stays on your device. Nothing is uploaded or saved by us.</p>
-    </div>
-    <div>
-      <div class="cam" id="camBox">
-        <div class="screen" id="screen">
-          <div class="idle" id="idle">
-            <svg viewBox="0 0 120 50" fill="#ffbe2e"><use href="#tache"/></svg>
-            Your camera will show here
-          </div>
-          <video id="video" playsinline muted hidden></video>
-          <div class="shots" id="shots" hidden><i></i><i></i><i></i><i></i></div>
-          <div class="count" id="count"></div>
-          <div class="camflash" id="camflash"></div>
-        </div>
-        <div class="controls" id="controls">
-          <button class="btn" id="startBtn" type="button">Start the booth</button>
-        </div>
-        <p class="camerr" id="camerr"></p>
-      </div>
-      <div class="result" id="result">
-        <img id="stripImg" alt="Your Snapjar photo strip">
-        <div>
-          <p>That's your strip. At a party, guests get these on their phones straight from the booth.</p>
-          <div class="controls" style="margin-top:0">
-            <a class="btn" id="saveBtn" download="snapjar-strip.png">Save my strip</a>
-            <button class="btn line" id="againBtn" type="button">Go again</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section id="how">
   <div class="wrap">
     <div class="head">
@@ -323,12 +266,12 @@ footer a{color:#d9cde3}
       <p>No add-ons to argue about. This all comes as standard.</p>
     </div>
     <div class="inc-grid">
-      <div class="item"><svg viewBox="0 0 120 50" fill="#2a1433"><use href="#tache"/></svg><h3>A friendly host</h3><p>Someone with the booth the whole time, keeping the queue moving and the props in circulation.</p></div>
-      <div class="item"><svg viewBox="0 0 120 60" fill="#2a1433" color="#2a1433"><use href="#bulb"/></svg><h3>Lights and backdrop</h3><p>A proper ring light and backdrop, so everyone looks good even in a dark hall.</p></div>
-      <div class="item"><svg viewBox="0 0 120 70" fill="#2a1433"><use href="#crown"/></svg><h3>A box of props</h3><p>Hats, crowns, specs, signs and plenty of silliness.</p></div>
-      <div class="item"><svg viewBox="0 0 120 50" fill="#2a1433"><use href="#specs"/></svg><h3>Your own overlay</h3><p>Every photo framed with your names, date and theme, at no extra cost.</p></div>
-      <div class="item"><svg viewBox="0 0 120 60" fill="#2a1433"><use href="#phone"/></svg><h3>Photos in seconds</h3><p>Guests scan a code or enter their number and the photos land on their phone straight away.</p></div>
-      <div class="item"><svg viewBox="0 0 120 60" fill="#2a1433"><use href="#lips"/></svg><h3>The full set for you</h3><p>Every photo from the night, sent to you afterwards to keep.</p></div>
+      <div class="item"><div class="prop"><svg viewBox="0 0 120 50" fill="#2a1433"><use href="#tache"/></svg></div><h3>A friendly host</h3><p>Someone with the booth the whole time, keeping the queue moving and the props in circulation.</p></div>
+      <div class="item"><div class="prop"><svg viewBox="0 0 120 60" fill="#ff5e4d" color="#ff5e4d"><use href="#bulb"/></svg></div><h3>Lights and backdrop</h3><p>A proper ring light and backdrop, so everyone looks good even in a dark hall.</p></div>
+      <div class="item"><div class="prop"><svg viewBox="0 0 120 70" fill="#e0a100"><use href="#crown"/></svg></div><h3>A box of props</h3><p>Hats, crowns, specs, signs and plenty of silliness.</p></div>
+      <div class="item"><div class="prop"><svg viewBox="0 0 120 50" fill="#2a1433"><use href="#specs"/></svg></div><h3>Your own overlay</h3><p>Every photo framed with your names, date and theme, at no extra cost.</p></div>
+      <div class="item"><div class="prop"><svg viewBox="0 0 120 60" fill="#ff5e4d"><use href="#phone"/></svg></div><h3>Photos in seconds</h3><p>Guests scan a code or enter their number and the photos land on their phone straight away.</p></div>
+      <div class="item"><div class="prop"><svg viewBox="0 0 120 60" fill="#ff5e4d"><use href="#lips"/></svg></div><h3>The full set for you</h3><p>Every photo from the night, sent to you afterwards to keep.</p></div>
     </div>
   </div>
 </section>
@@ -402,7 +345,7 @@ footer a{color:#d9cde3}
 
 <section class="book" id="book">
   <div class="wrap">
-    <h2>Got a date in mind?</h2>
+    <div class="sign"><div class="bubble"><h2>Got a date in mind?</h2></div><div class="stick"></div></div>
     <p>Check availability and book online in a couple of minutes. A £50 deposit holds your date.</p>
     <a class="btn" href="#book" id="bookBtn">Check availability and book</a>
     <p class="soon" id="soon">Online booking opens soon. Email us below to hold your date.</p>
@@ -466,104 +409,6 @@ if (CONFIG.bookingUrl.trim()) {
   });
 }
 
-/* ===== Mini booth ===== */
-(() => {
-  const $ = id => document.getElementById(id);
-  const video = $('video'), count = $('count'), flash = $('camflash');
-  const startBtn = $('startBtn'), againBtn = $('againBtn');
-  const shotDots = [...$('shots').children];
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const sleep = ms => new Promise(r => setTimeout(r, ms));
-  let stream = null, busy = false;
-
-  function grab() {
-    // 4:3 crop from the video, mirrored like the preview
-    const vw = video.videoWidth, vh = video.videoHeight;
-    const target = 4 / 3;
-    let sw = vw, sh = vw / target;
-    if (sh > vh) { sh = vh; sw = vh * target; }
-    const sx = (vw - sw) / 2, sy = (vh - sh) / 2;
-    const c = document.createElement('canvas');
-    c.width = 640; c.height = 480;
-    const x = c.getContext('2d');
-    x.translate(640, 0); x.scale(-1, 1);
-    x.drawImage(video, sx, sy, sw, sh, 0, 0, 640, 480);
-    return c;
-  }
-
-  function buildStrip(frames) {
-    const W = 600, pad = 22, fw = W - pad * 2, fh = fw * 3 / 4, foot = 150;
-    const H = pad + frames.length * (fh + 16) + foot;
-    const c = document.createElement('canvas');
-    c.width = W; c.height = H;
-    const x = c.getContext('2d');
-    x.fillStyle = '#ffffff'; x.fillRect(0, 0, W, H);
-    frames.forEach((f, i) => x.drawImage(f, pad, pad + i * (fh + 16), fw, fh));
-    const fy = pad + frames.length * (fh + 16);
-    x.fillStyle = '#2a1433';
-    x.textAlign = 'center';
-    x.font = '44px "Rammetto One", "Arial Black", sans-serif';
-    x.fillText('Snapjar', W / 2, fy + 62);
-    const d = new Date();
-    const dd = String(d.getDate()).padStart(2, '0'), mm = String(d.getMonth() + 1).padStart(2, '0');
-    x.fillStyle = '#6b5a75';
-    x.font = '600 22px Figtree, sans-serif';
-    x.fillText(`snapjar.co.uk  ${dd}/${mm}/${d.getFullYear()}`, W / 2, fy + 102);
-    return c;
-  }
-
-  function stop() {
-    if (stream) stream.getTracks().forEach(t => t.stop());
-    stream = null;
-    video.hidden = true; $('shots').hidden = true; $('idle').hidden = false;
-  }
-
-  async function run() {
-    if (busy) return;
-    busy = true;
-    $('camerr').style.display = 'none';
-    $('result').classList.remove('show');
-    $('camBox').hidden = false;
-    try {
-      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) throw new Error('unsupported');
-      stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user', width: { ideal: 1280 } }, audio: false });
-    } catch (e) {
-      $('camerr').textContent = e.message === 'unsupported'
-        ? "This browser can't use the camera. Try it on your phone."
-        : 'Allow camera access to have a go. Nothing leaves your device.';
-      $('camerr').style.display = 'block';
-      busy = false; return;
-    }
-    video.srcObject = stream;
-    video.hidden = false; $('idle').hidden = true; $('shots').hidden = false;
-    shotDots.forEach(d => d.classList.remove('on'));
-    await video.play();
-    startBtn.disabled = true; startBtn.textContent = 'Get ready…';
-    await sleep(900);
-
-    const frames = [];
-    for (let i = 0; i < 4; i++) {
-      for (const n of [3, 2, 1]) { count.textContent = n; await sleep(reduce ? 500 : 750); }
-      count.textContent = '';
-      frames.push(grab());
-      if (!reduce) { flash.classList.remove('go'); void flash.offsetWidth; flash.classList.add('go'); }
-      shotDots[i].classList.add('on');
-      await sleep(700);
-    }
-    stop();
-    const strip = buildStrip(frames);
-    const url = strip.toDataURL('image/png');
-    $('stripImg').src = url;
-    $('saveBtn').href = url;
-    $('camBox').hidden = true;
-    $('result').classList.add('show');
-    startBtn.disabled = false; startBtn.textContent = 'Start the booth';
-    busy = false;
-  }
-
-  startBtn.addEventListener('click', run);
-  againBtn.addEventListener('click', run);
-})();
 </script>
 </body>
 </html>
