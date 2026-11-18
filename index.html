@@ -330,12 +330,13 @@ footer a{color:rgba(255,247,236,.8)}
 const CONFIG = {
   bookingUrl: "",                 // Square Appointments booking site link
   email:      "hello@snapjar.co.uk",
-  phone:      "[Libby's mobile]",
+  phone:      "",                 // leave blank to hide the phone line
   instagram:  "@snapjarbooth"     // check the handle is free first
 };
 
 document.getElementById('cEmail').textContent = CONFIG.email;
 document.getElementById('cPhone').textContent = CONFIG.phone;
+if (!CONFIG.phone.trim()) document.getElementById('cPhone').parentElement.style.display = 'none';
 document.getElementById('cInsta').textContent = CONFIG.instagram;
 document.getElementById('yr').textContent = new Date().getFullYear();
 
