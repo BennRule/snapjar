@@ -127,14 +127,17 @@ section{padding:110px 0}
 .pk.best{background:var(--plum);color:var(--white);border-color:var(--plum);position:relative}
 .pk.best .flag{position:absolute;top:-16px;right:28px;background:var(--coral);color:#fff;font-weight:700;font-size:14px;padding:6px 14px;border-radius:999px;transform:rotate(3deg)}
 .pk h3{font-size:26px}
-.pk .hours{color:var(--muted);font-weight:500;margin-top:2px}
-.pk.best .hours{color:#c8b8d4}
-.pk .price{font-family:var(--display);font-size:68px;line-height:1;margin:24px 0 26px}
+.pk .for{color:var(--muted);font-weight:500;margin-top:4px}
+.pk.best .for{color:#c8b8d4}
+.pk .per{color:var(--muted);font-size:16px;margin:-14px 0 22px}
+.pk.best .per{color:#c8b8d4}
+.pk .price{font-family:var(--display);font-size:68px;line-height:1;margin:24px 0 22px}
 .pk ul{list-style:none;margin-bottom:30px;flex:1}
 .pk li{padding:9px 0 9px 32px;position:relative;font-size:17px}
 .pk li:before{content:"";position:absolute;left:0;top:15px;width:16px;height:16px;border-radius:50%;background:var(--sun)}
 .pk .btn{text-align:center}
-.extras{margin-top:32px;max-width:880px;color:var(--muted);font-size:17px}
+.both{margin-top:32px;max-width:880px;font-size:17px;background:var(--lilac);border-radius:16px;padding:20px 24px}
+.extras{margin-top:20px;max-width:880px;color:var(--muted);font-size:17px}
 .extras b{color:var(--ink)}
 @media (max-width:720px){.pk-row{grid-template-columns:1fr}}
 
@@ -285,32 +288,32 @@ footer a{color:#d9cde3}
     <div class="pk-row">
       <div class="pk">
         <h3>The Snap</h3>
-        <div class="hours">2 hours of booth time</div>
+        <div class="for">For kids' birthdays and smaller parties</div>
         <div class="price">£150</div>
+        <div class="per">2 hours, £75 an hour</div>
         <ul>
-          <li>Host with the booth for 2 hours</li>
-          <li>Lights, backdrop and props</li>
-          <li>Personalised overlay</li>
-          <li>Unlimited photos, shared instantly</li>
-          <li>The full set sent to you after</li>
+          <li>2 hours of booth time</li>
+          <li>Photos, shared to phones instantly</li>
+          <li>Overlay with your names and date</li>
         </ul>
         <a class="btn dark" href="#book" data-book>Book The Snap</a>
       </div>
       <div class="pk best">
-        <span class="flag">Most booked</span>
+        <span class="flag">Best value</span>
         <h3>The Full Jar</h3>
-        <div class="hours">3 hours of booth time</div>
+        <div class="for">For weddings, big birthdays and work dos</div>
         <div class="price">£200</div>
+        <div class="per">3 hours, £67 an hour</div>
         <ul>
-          <li>Host with the booth for 3 hours</li>
-          <li>Lights, backdrop and props</li>
-          <li>Personalised overlay</li>
-          <li>Unlimited photos, shared instantly</li>
-          <li>The full set sent to you after</li>
+          <li>3 hours of booth time</li>
+          <li>Photos, GIFs and boomerangs, shared instantly</li>
+          <li>Overlay designed around your theme</li>
+          <li>Themed prop box to match your party</li>
         </ul>
         <a class="btn" href="#book" data-book>Book The Full Jar</a>
       </div>
     </div>
+    <p class="both"><b>Both packages include</b> a host with the booth the whole time, lights and backdrop, our prop box, unlimited photos, and the full set sent to you afterwards.</p>
     <p class="extras">Running late? Extra hours are <b>£35</b> each. Travel outside Medway is <b>£20 to £40</b> depending on distance, and we'll confirm it before you pay anything.</p>
   </div>
 </section>
